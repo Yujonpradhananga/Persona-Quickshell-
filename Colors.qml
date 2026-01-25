@@ -1,0 +1,1 @@
+/home/yujon/.cache/wal/colors-quickshell.qml
