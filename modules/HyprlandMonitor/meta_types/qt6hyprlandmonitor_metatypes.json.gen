@@ -1,0 +1,338 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "HyprlandMonitor",
+                "lineNumber": 11,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "lineNumber": 51,
+                        "name": "refresh",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "address",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 11,
+                        "lineNumber": 52,
+                        "name": "windowByAddress",
+                        "returnType": "QJsonObject"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "id",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 12,
+                        "lineNumber": 53,
+                        "name": "workspaceById",
+                        "returnType": "QJsonObject"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "workspaceId",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 13,
+                        "lineNumber": 54,
+                        "name": "biggestWindowForWorkspace",
+                        "returnType": "QJsonObject"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "command",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 14,
+                        "lineNumber": 55,
+                        "name": "dispatch",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "lineNumber": 15,
+                        "name": "windowList",
+                        "notify": "windowListChanged",
+                        "read": "windowList",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QJsonArray",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "lineNumber": 16,
+                        "name": "workspaces",
+                        "notify": "workspacesChanged",
+                        "read": "workspaces",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QJsonArray",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "lineNumber": 17,
+                        "name": "monitors",
+                        "notify": "monitorsChanged",
+                        "read": "monitors",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QJsonArray",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "lineNumber": 18,
+                        "name": "activeWorkspace",
+                        "notify": "activeWorkspaceChanged",
+                        "read": "activeWorkspace",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QJsonObject",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "lineNumber": 20,
+                        "name": "focusedMonitor",
+                        "notify": "focusedMonitorChanged",
+                        "read": "focusedMonitor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QJsonObject",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "lineNumber": 22,
+                        "name": "activeWorkspaceId",
+                        "notify": "activeWorkspaceChanged",
+                        "read": "activeWorkspaceId",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 6,
+                        "lineNumber": 24,
+                        "name": "connected",
+                        "notify": "connectedChanged",
+                        "read": "connected",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 7,
+                        "lineNumber": 25,
+                        "name": "windowByAddressMap",
+                        "notify": "windowListChanged",
+                        "read": "windowByAddressMap",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 8,
+                        "lineNumber": 27,
+                        "name": "workspaceByIdMap",
+                        "notify": "workspacesChanged",
+                        "read": "workspaceByIdMap",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantMap",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 9,
+                        "lineNumber": 29,
+                        "name": "workspaceIds",
+                        "notify": "workspacesChanged",
+                        "read": "workspaceIds",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 10,
+                        "lineNumber": 31,
+                        "name": "addresses",
+                        "notify": "windowListChanged",
+                        "read": "addresses",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "HyprlandMonitor",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 58,
+                        "name": "windowListChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 59,
+                        "name": "workspacesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 60,
+                        "name": "monitorsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 61,
+                        "name": "activeWorkspaceChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 62,
+                        "name": "focusedMonitorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 63,
+                        "name": "connectedChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "event",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "data",
+                                "type": "QJsonObject"
+                            }
+                        ],
+                        "index": 6,
+                        "lineNumber": 64,
+                        "name": "hyprlandEvent",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 7,
+                        "lineNumber": 67,
+                        "name": "onEventSocketReadyRead",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 8,
+                        "lineNumber": 68,
+                        "name": "connectToHyprland",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 9,
+                        "lineNumber": 69,
+                        "name": "requestData",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "hyprlandmonitor.hpp",
+        "outputRevision": 69
+    }
+]

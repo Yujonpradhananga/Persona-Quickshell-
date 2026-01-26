@@ -1,0 +1,7 @@
+--bare
+-I
+/home/yujon/.local/lib/qt6/qml
+-I
+/usr/lib64/qt6/qml
+--resource
+/home/yujon/Projects/quickshell/modules/HyprlandMonitor/.qt/rcc/qmake_HyprlandMonitor.qrc

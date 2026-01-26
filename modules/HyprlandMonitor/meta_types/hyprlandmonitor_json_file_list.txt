@@ -1,0 +1,1 @@
+/home/yujon/Projects/quickshell/modules/HyprlandMonitor/hyprlandmonitor_autogen/include/../EWIEGA46WW/moc_hyprlandmonitor.cpp.json

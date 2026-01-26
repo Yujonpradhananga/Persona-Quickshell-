@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/HyprlandMonitor">
+    <file alias="qmldir">/home/yujon/.local/lib/qt6/qml/HyprlandMonitor/qmldir</file>
+  </qresource>
+</RCC>
+
