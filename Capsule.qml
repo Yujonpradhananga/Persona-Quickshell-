@@ -100,51 +100,47 @@ ShellRoot {
                   // Track Info and Controls side by side
                   RowLayout {
                     Layout.alignment: Qt.AlignHCenter
-                    Layout.topMargin: 20
+                    Layout.topMargin: 10
                     Layout.leftMargin: -10
                     spacing: 30
                       
-                      // Track Info
-                      Item {
-                          Layout.alignment: Qt.AlignVCenter
-                          Layout.preferredWidth: 100
-                          Layout.preferredHeight: 40
-                          
-                          Column {
-                              anchors.fill: parent
-                              spacing: 1
-                          
-                              Text {
-                                  text: mpris ? (mpris.trackTitle || mpris.title || "No title") : "No Media"
-                                  font.family: "Segoe UI"
-                                  font.pixelSize: 16
-                                  color: "black"
-                                  horizontalAlignment: Text.AlignLeft
-                                  elide: Text.ElideRight
-                                  width: 150
-                                  height: 20
-                                  clip: true
-                              }
-                              
-                              Text {
-                                  text: mpris ? (mpris.trackArtist || mpris.artist || "Unknown Artist") : ""
-                                  font.family: "Segoe UI"
-                                  font.pixelSize: 12
-                                  color: "#80d0ff"
-                                  horizontalAlignment: Text.AlignLeft
-                                  elide: Text.ElideRight
-                                  width: 150
-                                  height: 16
-                                  clip: true
-                                  visible: text !== ""
-                              }
-                          }
-                      }
+                    // Track info , marquee
+                    Item {
+                        Layout.alignment: Qt.AlignVCenter
+                        Layout.preferredWidth: 100
+                        Layout.preferredHeight: 40
+                        
+                        Column {
+                            anchors.fill: parent
+                            spacing: 3
+                        
+                            Marquee {
+                                text: mpris ? (mpris.trackTitle || mpris.title || "No title") : "No Media"
+                                maxWidth: 150
+                                font: "Linux Biolinum"
+                                size: 16
+                                color: "black"
+                                scrollRate: 50
+                                pauseDuration: 2000
+                            }
+                            
+                            Marquee {
+                                text: mpris ? (mpris.trackArtist || mpris.artist || "Unknown Artist") : ""
+                                maxWidth: 150
+                                font: "Linux Biolinum"
+                                size: 12
+                                color:colors.color3 
+                                scrollRate: 50
+                                pauseDuration: 2000
+                                visible: text !== ""
+                            }
+                        }
+                    }
                       
                       // Media Controls
                       RowLayout {
                         Layout.alignment: Qt.AlignVCenter
-                        Layout.topMargin:10
+                        Layout.topMargin:25
                         Layout.leftMargin:-10
                           spacing: 10
                           

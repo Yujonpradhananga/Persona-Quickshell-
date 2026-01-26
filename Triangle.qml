@@ -76,18 +76,11 @@ ShellRoot{
               easing.type: Easing.InOutSine
           }
       }
-      
-      SystemClock {
-        id: clock
-        precision: SystemClock.Seconds
-      }
       BatteryMonitor { id: battery }
-
-
       Column{
         anchors.centerIn: parent
-        anchors.verticalCenterOffset: 450
-        anchors.horizontalCenterOffset: 700
+        anchors.verticalCenterOffset: 300
+        anchors.horizontalCenterOffset: 750
         spacing: 20
         
           Item {

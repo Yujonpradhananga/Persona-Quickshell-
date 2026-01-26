@@ -193,21 +193,21 @@ anchors.horizontalCenter: parent.horizontalCenter
                         ColumnLayout {
                             anchors.centerIn: parent
                             width: parent.width
-                            spacing: 8
+                            spacing: 5
                             
                             Text {
                                 Layout.alignment: Qt.AlignHCenter
                                 text: "CPU"
-                                color: "#6c7086"
-                                font.pixelSize: 14
+                                color:colors.color1 
+                                font.pixelSize: 20
                                 font.bold: true
                             }
                             
                             Text {
                                 Layout.alignment: Qt.AlignHCenter
                                 text: Math.round(root.cpuUsage * 100) + "%"
-                                color: "#cdd6f4"
-                                font.pixelSize: 24
+                                color: "white"
+                                font.pixelSize: 25
                                 font.bold: true
                             }
                         }
@@ -221,21 +221,21 @@ anchors.horizontalCenter: parent.horizontalCenter
                         ColumnLayout {
                             anchors.centerIn: parent
                             width: parent.width
-                            spacing: 8
+                            spacing: 5
                             
                             Text {
                                 Layout.alignment: Qt.AlignHCenter
                                 text: "RAM"
-                                color: "#6c7086"
-                                font.pixelSize: 14
+                                color:colors.color1 
+                                font.pixelSize: 20
                                 font.bold: true
                             }
                             
                             Text {
                                 Layout.alignment: Qt.AlignHCenter
                                 text: Math.round(root.memUsage * 100) + "%"
-                                color: "#cdd6f4"
-                                font.pixelSize: 24
+                                color: "white"
+                                font.pixelSize: 25
                                 font.bold: true
                             }
                         }
@@ -249,21 +249,21 @@ anchors.horizontalCenter: parent.horizontalCenter
                         ColumnLayout {
                             anchors.centerIn: parent
                             width: parent.width
-                            spacing: 8
+                            spacing: 5
                             
                             Text {
                                 Layout.alignment: Qt.AlignHCenter
                                 text: "DISK"
-                                color: "#6c7086"
-                                font.pixelSize: 14
+                                color:colors.color1 
+                                font.pixelSize: 20
                                 font.bold: true
                             }
                             
                             Text {
                                 Layout.alignment: Qt.AlignHCenter
                                 text: Math.round(root.diskUsage * 100) + "%"
-                                color: "#cdd6f4"
-                                font.pixelSize: 24
+                                color: "white"
+                                font.pixelSize: 25
                                 font.bold: true
                             }
                         }
