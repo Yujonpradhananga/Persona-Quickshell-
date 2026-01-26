@@ -3,12 +3,12 @@
 A custom Quickshell configuration themed after Persona 3 reload. 
 Hyprland and MangoWC window manager support
 
-## Demo
+# Demo
 
 https://github.com/user-attachments/assets/78e3685d-7643-4e5e-ab2d-d2b7f1a44dbb
 
 
-## Credits
+# Credits
 
 Inspiration taken from:
 https://github.com/RyuZinOh/.dotfiles
@@ -17,9 +17,9 @@ shader taken from:
 https://github.com/eq-desktop/Vitreus
 
 
-## AppLauncher:
+# AppLauncher:
 The AppLauncher requires a hyprland keybind for it to work, i have set mine up as:
-# Keybind
+## Keybind
 
 bind = $mainMod, R, exec, quickshell -c /Location to where its installed/ ipc call searchapp toggle
 
@@ -27,10 +27,10 @@ Mine is set like this:
 bind = $mainMod, R, exec, quickshell -c /home/yujon/Projects/quickshell/ ipc call searchapp toggle
 
 
-## For MangoWC support
+# For MangoWC support
 replace the Mousemover.qml in the OnClicked in the AppDrawer.qml file to the Mousemoverwlroots.qml
 
-## Power menu
+# Power menu
 the power menu currently uses loginctl commands, feel free to change them to your needs.
 
 
