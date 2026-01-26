@@ -36,6 +36,14 @@ replace the Mousemover.qml in the OnClicked in the AppDrawer.qml file to the Mou
 # Power menu
 the power menu currently uses loginctl commands, feel free to change them to your needs.
 
+# Dependencies
+Qt6
+## fonts
+Linux Biolinum
+Montserrat
+Glirock
+
+#
 
 Not perfect, certain modules can be optimized better. Feel free to pr and suggest improvements.
 thnx for checking it out
