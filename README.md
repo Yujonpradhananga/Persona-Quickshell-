@@ -18,7 +18,8 @@ https://github.com/eq-desktop/Vitreus
 
 
 # AppLauncher:
-The AppLauncher requires a hyprland keybind for it to work, i have set mine up as:
+The AppLauncher requires a hyprland keybind for it to work
+
 ## Keybind
 
 bind = $mainMod, R, exec, quickshell -c /Location to where its installed/ ipc call searchapp toggle
