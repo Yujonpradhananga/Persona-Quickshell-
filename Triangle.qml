@@ -79,7 +79,7 @@ ShellRoot{
       BatteryMonitor { id: battery }
       Column{
         anchors.centerIn: parent
-        anchors.verticalCenterOffset: 300
+        anchors.verticalCenterOffset: 400
         anchors.horizontalCenterOffset: 750
         spacing: 20
         
