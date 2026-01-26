@@ -7,7 +7,6 @@ import Quickshell.Io
 Scope {
     id: root
     property bool shouldShow: false
-    
     Colors { id: colors }
     property int workspacesShown: 10
     property int columns: 5
@@ -15,7 +14,6 @@ Scope {
     property real workspaceWidth: 260
     property real workspaceHeight: 150
     property real workspaceSpacing: 14
-
     readonly property var jpN: ({
         1: "一",
         2: "二",
@@ -36,17 +34,13 @@ Scope {
     readonly property real scaleX: workspaceWidth / monitorWidth
     readonly property real scaleY: workspaceHeight / monitorHeight
 
-
     property int draggingFromWorkspace: -1
     property int draggingTargetWorkspace: -1
     property bool isDraggingToClose: false
 
-
     property int activeWorkspaceId: Hyprland.focusedWorkspace?.id ?? 1
 
-
     property var windowList: []
-
 
     Connections {
         target: Hyprland
@@ -54,33 +48,48 @@ Scope {
             root.activeWorkspaceId = Hyprland.focusedWorkspace?.id ?? 1
         }
         function onRawEvent(event) {
-
-            if (event.name.includes("window") || event.name.includes("workspace") || 
-                event.name === "openwindow" || event.name === "closewindow" || 
-                event.name === "movewindow") {
-                refreshWindows()
+            if (event.name === "openwindow" || event.name === "closewindow" || 
+                event.name === "movewindow" || event.name === "movewindowv2") {
+                updateWindowList()
             }
         }
     }
 
-
-    onShouldShowChanged: {
-        if (shouldShow) {
-            refreshWindows()
-        }
-    }
-
-    function refreshWindows() {
+    function updateWindowList() {
         getClientsProc.running = true
     }
 
     Process {
         id: getClientsProc
-        command: ["hyprctl", "clients", "-j"]
+        command: ["bash", "-c", "hyprctl clients -j"]
+        
         stdout: StdioCollector {
             onStreamFinished: {
+                const rawText = this.text.trim()
+                
+                if (rawText.length === 0 || rawText.includes("HYPRLAND_INSTANCE_SIGNATURE not set")) {
+                    console.warn("Hyprland not available or not running")
+                    root.windowList = []
+                    return
+                }
+                
                 try {
-                    root.windowList = JSON.parse(this.text)
+                    const clients = JSON.parse(rawText)
+                    let windows = []
+                    
+                    for (let i = 0; i < clients.length; i++) {
+                        let client = clients[i]
+                        windows.push({
+                            workspace: { id: client.workspace?.id ?? 1 },
+                            address: client.address ?? "",
+                            at: [client.at?.[0] ?? 0, client.at?.[1] ?? 0],
+                            size: [client.size?.[0] ?? 100, client.size?.[1] ?? 100],
+                            class: client.class ?? "Window",
+                            floating: client.floating ?? false
+                        })
+                    }
+                    
+                    root.windowList = windows
                 } catch (e) {
                     console.error("Failed to parse clients:", e)
                     root.windowList = []
@@ -89,7 +98,13 @@ Scope {
         }
     }
 
-    Component.onCompleted: refreshWindows()
+    Component.onCompleted: updateWindowList()
+
+    onShouldShowChanged: {
+        if (shouldShow) {
+            updateWindowList()
+        }
+    }
 
     LazyLoader {
         active: root.shouldShow
@@ -120,14 +135,12 @@ Scope {
                     anchors.fill: parent
                     onClicked: root.shouldShow = false
                 }
-                
 
                 Item {
                     id: workspaceContainer
                     anchors.centerIn: parent
                     width: (root.workspaceWidth + root.workspaceSpacing) * root.columns - root.workspaceSpacing
                     height: (root.workspaceHeight + root.workspaceSpacing) * root.rows - root.workspaceSpacing
-
 
                     Repeater {
                         model: root.workspacesShown
@@ -167,7 +180,6 @@ Scope {
                                 }
                             }
 
-
                             Text {
                                 anchors.centerIn: parent
                                 text: root.jpN[parent.workspaceId] ?? parent.workspaceId
@@ -176,7 +188,6 @@ Scope {
                                 font.weight: Font.DemiBold
                                 opacity: 0.15
                             }
-
 
                             Text {
                                 anchors.right: parent.right
@@ -188,7 +199,6 @@ Scope {
                                 font.weight: Font.Medium
                                 opacity: 0.4
                             }
-
 
                             Rectangle {
                                 anchors.fill: parent
@@ -221,7 +231,6 @@ Scope {
                                 }
                             }
 
-
                             MouseArea {
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
@@ -232,7 +241,6 @@ Scope {
                         }
                     }
 
-
                     Repeater {
                         model: root.windowList
 
@@ -240,7 +248,6 @@ Scope {
                             id: windowItem
                             required property var modelData
                             required property int index
-
 
                             readonly property int workspaceId: modelData.workspace?.id ?? 1
                             readonly property int workspaceIndex: workspaceId - 1
@@ -252,7 +259,6 @@ Scope {
                             readonly property int row: Math.floor(workspaceIndex / root.columns)
                             readonly property real baseX: col * (root.workspaceWidth + root.workspaceSpacing)
                             readonly property real baseY: row * (root.workspaceHeight + root.workspaceSpacing)
-
 
                             readonly property var atArray: modelData.at ?? [0, 0]
                             readonly property var sizeArray: modelData.size ?? [100, 100]
@@ -278,7 +284,6 @@ Scope {
 
                             readonly property real targetX: baseX + clampedX
                             readonly property real targetY: baseY + clampedY
-
 
                             readonly property string windowAddress: modelData.address ?? ""
 
@@ -325,7 +330,6 @@ Scope {
                                     horizontalAlignment: Text.AlignHCenter
                                 }
                             }
-
 
                             Rectangle {
                                 anchors.fill: parent
@@ -389,12 +393,10 @@ Scope {
 
                                     if (shouldClose && wasDragging && addr) {
                                         Hyprland.dispatch(`closewindow address:${addr}`)
-
-                                        Qt.callLater(root.refreshWindows)
+                                        Qt.callLater(root.updateWindowList)
                                     } else if (targetWs !== -1 && targetWs !== fromWs && wasDragging && addr) {
                                         Hyprland.dispatch(`movetoworkspacesilent ${targetWs},address:${addr}`)
-
-                                        Qt.callLater(root.refreshWindows)
+                                        Qt.callLater(root.updateWindowList)
                                     } else {
                                         windowItem.x = windowItem.targetX
                                         windowItem.y = windowItem.targetY
