@@ -167,7 +167,7 @@ ShellRoot{
                   Row{
                     anchors.centerIn: parent
                     spacing: 20
-                    anchors.horizontalCenterOffset: -300
+                    anchors.horizontalCenterOffset: -80
                     anchors.verticalCenterOffset: 10
                     rotation: window.middleInnerSlant
                     transform: Scale { xScale: -1; origin.x: batteryText.width / 2 }
