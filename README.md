@@ -2,12 +2,11 @@
 
 <div align=center>
 
-[![QML](https://img.shields.io/badge/QML-Quickshell-41CD52?logo=qt)](https://quickshell.outfoxxed.me)
-[![License](https://img.shields.io/github/license/Yujonpradhananga/Persona-Quickshell-)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/Yujonpradhananga/Persona-Quickshell-?style=social)](https://github.com/Yujonpradhananga/Persona-Quickshell-/stargazers)
-[![Hyprland](https://img.shields.io/badge/Hyprland-supported-58E1FF?logo=hyprland)](https://hyprland.org)
-[![NixOS](https://img.shields.io/badge/NixOS-compatible-5277C3?logo=nixos)](https://nixos.org)
-[![Last Commit](https://img.shields.io/github/last-commit/Yujonpradhananga/Persona-Quickshell-)](https://github.com/Yujonpradhananga/Persona-Quickshell-/commits/main)
+[![QML](https://img.shields.io/badge/QML-Quickshell-7aa2f7?style=for-the-badge&logo=qt&logoColor=white)](https://quickshell.outfoxxed.me)
+[![Stars](https://img.shields.io/github/stars/Yujonpradhananga/Persona-Quickshell-?style=for-the-badge&color=e0af68&logoColor=white)](https://github.com/Yujonpradhananga/Persona-Quickshell-/stargazers)
+[![Hyprland](https://img.shields.io/badge/Hyprland-supported-2ac3de?style=for-the-badge&logoColor=white)](https://hyprland.org)
+[![NixOS](https://img.shields.io/badge/NixOS-compatible-7dcfff?style=for-the-badge&logo=nixos&logoColor=white)](https://nixos.org)
+[![Last Commit](https://img.shields.io/github/last-commit/Yujonpradhananga/Persona-Quickshell-?style=for-the-badge&color=9ece6a&logoColor=white)](https://github.com/Yujonpradhananga/Persona-Quickshell-/commits/main)
 
 </div>
 
